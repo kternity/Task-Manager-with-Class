@@ -31,9 +31,23 @@ function saveTask() {
    //create a new instance of Task (object)
    let task = new Task(isImportant, title, description, dueDate, category, priority, cost);
    console.log(task);
-   displayTask(task);
+  
+   
+   $.ajax({
+      type: "POST",
+      url: "https://fsdiapi.azurewebsites.net/api/tasks/",
+      data: JSON.stringify(task),
+      contentType: "application/json",
+      success: function(data) {
+         displayTask(task);
+         console.log("Server says",data);
+      },
+      error: function(error) {
+         console.log("Request error", error)
+         alert('Error: task is not saved');
+      },
+   });
 }
-
 
 function displayTask(task) {
    let syntax =`
@@ -68,14 +82,60 @@ function toggleDetails() {
    }
 }
 
+/*
+function testRequest () {
+   $.ajax({
+      type: "GET",
+      url: "https://fsdiapi.azurewebsites.net",
+      success: function(x) {
+         console.log("Server says", x);
+      },
+      error: function(error) {
+         console.log("Request error", error)
+      },
+   });
+}
+*/
 
+
+function fetchTasks() {
+   $.ajax({
+      type: "GET",
+      url: "https://fsdiapi.azurewebsites.net/api/tasks",
+      success:function (data) {
+         let all = JSON.parse(data); // will parse string back into obj.
+         console.log(all); //all = all the tasks saved in the server
+         for(let i=0; i<all.length; i++) {
+            let task= all[i];
+            if(task.name === "Kenneth") {
+               displayTask(task);
+            }
+         }
+      },
+      error:function (error) {
+         console.log("request error",error)
+      },
+   });
+}
 
 function init() {
    console.log("Task Manager HTML loaded");
 
+   fetchTasks();
    $("#topIcon").click(toggleImportant);
    $("#btnSave").click(saveTask);
    $("#btnToggleDetails").click(toggleDetails);
 }
 
 window.onload = init;
+
+
+
+
+
+
+
+
+
+
+

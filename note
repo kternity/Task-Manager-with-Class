@@ -1,0 +1,7 @@
+https methods: 
+   get: retrieve data
+   post: create new data
+   put & patch: modify existing data, patch
+   delete: remove
+
+   

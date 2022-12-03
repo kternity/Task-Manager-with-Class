@@ -7,6 +7,8 @@ class Task {
     this.dueDate = duedate;
     this.priority = priority;
     this.cost = cost;
+
+    this.name = "Kenneth";
   }
 }
 

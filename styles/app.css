@@ -13,23 +13,22 @@ nav {
    background-color:rgba(225, 214, 199, 0.842);
    padding-top: 10px;
    padding-bottom: 10px;
-
 }
 
 
 .main-container {
    display: flex;
-   height: calc(100vh - 70px);
+   min-height: calc(100vh - 70px);
    background-image: url('../images/nav.jpg');
    background-size: cover;
 }
 
 #secList {
-   flex: 3;
+   flex: 5;
 }
 
 #secForm {
-   flex: 2;
+   flex: 3;
    background-color: #e7e7e788;
    padding-left: 20px;
    padding-right: 20px;
@@ -50,7 +49,9 @@ h4 {
 footer {
    /* background-color: rgb(163, 81, 163); */
    height: 40px;
-   background-color: rgb(130, 225, 177);
+   background-color:rgba(225, 214, 199, 0.842);
+   text-align: center;
+   padding-top: 5px;
 }
 
 #topIcon.fa-solid {
@@ -81,7 +82,7 @@ h3 {
 
 .task .description {
    flex: 4;
-   background-color:#cacacbb8;
+   background-color:#cacacba3;
    padding: 12px 20px;
    border: 1px solid  black;
    margin: 1px 1px;
