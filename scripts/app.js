@@ -130,6 +130,11 @@ function init() {
 window.onload = init;
 
 
+/*
+Extra Work
+DELETE https://fsdiapi.azurewebsites.net/api/tasks/clear/<name>
+*/
+
 
 
 
